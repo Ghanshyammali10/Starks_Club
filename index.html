@@ -179,6 +179,15 @@
       font-weight: 700;
       font-size: 1.1rem;
       letter-spacing: 0.3em;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-logo {
+      height: 3.8rem;
+      width: auto;
+      display: block;
     }
 
     .nav-sub {
@@ -1233,11 +1242,8 @@
 
   <div class="page-wrap">
     <header class="nav">
-      <div class="nav-brand-wrap">
-        <div class="nav-brand">◈ STARKS</div>
-        <div class="nav-sub">Starks Club · SVKM Shirpur</div>
-      </div>
-      <nav class="nav-center">
+      <div class="nav-brand"><img src="Logo.png" alt="STARKS Tech Club" class="nav-logo"></div>
+      <nav class="nav-center"> 
         <ul class="nav-links">
           <li><a href="index.html" class="nav-link active">HOME</a></li>
           <li><a href="about.html" class="nav-link">ABOUT</a></li>
@@ -1381,7 +1387,7 @@
     </section>
 
     <footer class="footer">
-      <p>◈ STARKS Tech Club — Core Team</p>
+       <p><img src="Logo.png" alt="STARKS" style="height:1.2rem; vertical-align:middle; margin-right:8px;"> Tech Club — Core Team</p>
       <p class="foot-line">SVKM College of Engineering, Shirpur · Recruitment 2026</p>
       <p class="copy">© 2026 Starks Club. All rights reserved.</p>
     </footer>
