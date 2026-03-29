@@ -157,6 +157,21 @@
       backdrop-filter: blur(24px) saturate(180%);
       -webkit-backdrop-filter: blur(24px) saturate(180%);
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: background 0.35s, backdrop-filter 0.35s, border-bottom 0.35s, box-shadow 0.35s;
+    }
+
+    .nav--scrolled {
+      background: rgba(3, 5, 15, 0.88);
+      backdrop-filter: blur(32px) saturate(200%);
+      -webkit-backdrop-filter: blur(32px) saturate(200%);
+      border-bottom: 1px solid rgba(0, 229, 255, 0.18);
+      box-shadow: 0 4px 40px rgba(0, 229, 255, 0.06);
+    }
+
+    .nav-brand-wrap {
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
     }
 
     .nav-brand {
@@ -168,8 +183,144 @@
 
     .nav-sub {
       font-family: "DM Sans", sans-serif;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       color: var(--text-secondary);
+    }
+
+    .nav-center {
+      display: none;
+    }
+
+    @media (min-width: 900px) {
+      .nav-center {
+        display: flex;
+      }
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-family: "Orbitron", sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding-bottom: 2px;
+      transition: color 0.25s;
+      border-bottom: 1px solid transparent;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .nav-right {
+      display: none;
+    }
+
+    @media (min-width: 900px) {
+      .nav-right {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .nav-cta {
+      font-family: "Orbitron", sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      padding: 10px 22px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      background: transparent;
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+
+    .nav-cta:hover {
+      background: rgba(0, 229, 255, 0.1);
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.25);
+    }
+
+    /* Hamburger */
+    .nav-hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      z-index: 110;
+    }
+
+    @media (min-width: 900px) {
+      .nav-hamburger {
+        display: none;
+      }
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .nav-hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile Menu */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(3, 5, 15, 0.95);
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
+      z-index: 105;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .nav-mobile.open {
+      display: flex;
+    }
+
+    .nav-mobile .nav-link {
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      padding: 0.75rem 0;
+    }
+
+    .nav-mobile .nav-cta {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      padding: 14px 32px;
     }
 
     .hero {
@@ -185,8 +336,8 @@
 
     @media (min-width: 1200px) {
       .hero {
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
+        grid-template-columns: minmax(600px, 1.25fr) 1fr;
+        gap: 3rem;
       }
     }
 
@@ -369,6 +520,36 @@
     @keyframes orbPulse {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.08); }
+    }
+
+    .recruit-poster-wrap {
+      position: absolute;
+      top: 45%;
+      left: 65%;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+      width: min(350px, 80vw);
+      transition: filter 0.5s;
+      filter: drop-shadow(0 0 30px rgba(0, 229, 255, 0.15));
+    }
+
+    .hero-poster {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      transition: transform 0.6s ease, border-color 0.4s, box-shadow 0.4s;
+    }
+
+    .recruit-poster-wrap:hover {
+      filter: drop-shadow(0 0 50px rgba(0, 229, 255, 0.25));
+    }
+
+    .recruit-poster-wrap:hover .hero-poster {
+      border-color: rgba(0, 229, 255, 0.45);
+      box-shadow: 0 0 40px rgba(0, 229, 255, 0.2);
     }
 
     .about-strip {
@@ -1045,9 +1226,31 @@
 
   <div class="page-wrap">
     <header class="nav">
-      <div class="nav-brand">◈ STARKS</div>
-      <div class="nav-sub">Starks Club · SVKM Shirpur</div>
+      <div class="nav-brand-wrap">
+        <div class="nav-brand">◈ STARKS</div>
+        <div class="nav-sub">Starks Club · SVKM Shirpur</div>
+      </div>
+      <nav class="nav-center">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">HOME</a></li>
+          <li><a href="about.html" class="nav-link">ABOUT</a></li>
+          <li><a href="results.html" class="nav-link">RESULTS</a></li>
+        </ul>
+      </nav>
+      <div class="nav-right">
+        <a href="#roles" class="nav-cta" data-scroll="#roles">APPLY NOW</a>
+      </div>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </header>
+
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="index.html" class="nav-link active">HOME</a>
+      <a href="about.html" class="nav-link">ABOUT</a>
+      <a href="results.html" class="nav-link">RESULTS</a>
+      <a href="#roles" class="nav-cta" data-scroll="#roles" data-mobile-link>APPLY NOW</a>
+    </div>
 
     <section class="hero">
       <div class="hero-left">
@@ -1060,14 +1263,17 @@
           <p class="hero-sub">STARKS is a student-run tech club — organizing hackathons, workshops, and experiences that shape the next generation of builders at SVKM Shirpur.</p>
           <div class="hero-actions">
             <button type="button" class="btn btn-primary" data-scroll="#roles">EXPLORE ROLES →</button>
-            <button type="button" class="btn btn-ghost" data-scroll="#about">LEARN MORE</button>
+            <a href="about.html" class="btn btn-ghost">LEARN MORE</a>
           </div>
           <p class="hero-stats">5 Open Positions &nbsp;|&nbsp; 1 Club &nbsp;|&nbsp; ∞ Opportunities</p>
         </div>
       </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="orb-back"></div>
-        <div class="orb-main"></div>
+      <div class="hero-visual">
+        <div class="orb-back" aria-hidden="true"></div>
+        <div class="orb-main" aria-hidden="true"></div>
+        <div class="recruit-poster-wrap anim-entry" data-delay="0.4">
+          <img src="recruitment_poster.png" class="hero-poster" alt="STARKS Recruitment 2026">
+        </div>
       </div>
     </section>
 
@@ -1102,7 +1308,7 @@
       <div class="roles-row-2" id="roles-row-2"></div>
     </section>
 
-    <section class="how-section">
+    <section class="how-section" id="timeline">
       <div class="how-header">
         <p class="section-label">◈ STEPS</p>
         <h2>How To Apply</h2>
@@ -1277,67 +1483,150 @@
       box.style.boxShadow = "0 40px 120px rgba(0,0,0,0.6), 0 0 60px rgba(" + r + "," + g + "," + b + ",0.1)";
     }
 
-    (function initStars() {
+    (function initNeuralMesh() {
       var canvas = document.getElementById("stars");
       var ctx = canvas.getContext("2d");
-      var stars = [];
       var W = 0, H = 0;
-      var lastFrame = performance.now();
+      var nodes = [];
+      var mouse = { x: -9999, y: -9999 };
+      var last = performance.now();
+
+      var ACCENT = "0,229,255";
+      var ACCENT2 = "123,92,255";
+      var NODE_COUNT = 70;
+      var CONNECT_DIST = 160;
+      var MOUSE_DIST = 200;
+
 
       function resize() {
-        W = window.innerWidth;
-        H = window.innerHeight;
-        canvas.width = W;
-        canvas.height = H;
-        lastFrame = performance.now();
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+        last = performance.now();
       }
 
       function init() {
-        stars = [];
-        for (var i = 0; i < 200; i++) {
-          stars.push({
+        nodes = [];
+        for (var i = 0; i < NODE_COUNT; i++) {
+          nodes.push({
             x: Math.random() * W,
             y: Math.random() * H,
-            r: 0.5 + Math.random() * 1,
-            base: 0.2 + Math.random() * 0.6,
-            twinkleSpeed: 3 + Math.random() * 7,
-            vx: (Math.random() - 0.5) * 90,
-            vy: (Math.random() - 0.5) * 90
+            vx: (Math.random() - 0.5) * 18,
+            vy: (Math.random() - 0.5) * 18,
+            r: 1 + Math.random() * 1.5,
+            color: Math.random() > 0.6 ? ACCENT2 : ACCENT,
+            pulse: Math.random() * Math.PI * 2,
+            pulseSpeed: 0.5 + Math.random() * 1.5
           });
         }
       }
 
-      var t0 = performance.now();
       function frame(now) {
-        var dt = Math.min((now - lastFrame) / 1000, 0.066);
-        lastFrame = now;
-        var t = (now - t0) / 1000;
+        var dt = Math.min((now - last) / 1000, 0.05);
+        last = now;
+
         ctx.clearRect(0, 0, W, H);
-        for (var i = 0; i < stars.length; i++) {
-          var s = stars[i];
-          s.x += s.vx * dt;
-          s.y += s.vy * dt;
-          if (s.x < 0) s.x += W;
-          else if (s.x > W) s.x -= W;
-          if (s.y < 0) s.y += H;
-          else if (s.y > H) s.y -= H;
-          var op = s.base + Math.sin(t * s.twinkleSpeed + i * 0.7) * 0.28;
-          if (op < 0.1) op = 0.1;
-          if (op > 1) op = 1;
+
+
+        // Connections
+        for (var i = 0; i < nodes.length; i++) {
+          var a = nodes[i];
+
+          for (var j = i + 1; j < nodes.length; j++) {
+            var b = nodes[j];
+            var dx = b.x - a.x, dy = b.y - a.y;
+            var dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < CONNECT_DIST) {
+              var alpha = (1 - dist / CONNECT_DIST) * 0.35;
+              var grad = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
+              grad.addColorStop(0, "rgba(" + a.color + "," + alpha + ")");
+              grad.addColorStop(1, "rgba(" + b.color + "," + alpha + ")");
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.strokeStyle = grad;
+              ctx.lineWidth = 0.6;
+              ctx.stroke();
+            }
+          }
+
+          // Mouse connection lines
+          var mdx = mouse.x - a.x, mdy = mouse.y - a.y;
+          var mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+          if (mdist < MOUSE_DIST) {
+            var malpha = (1 - mdist / MOUSE_DIST) * 0.6;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = "rgba(" + ACCENT + "," + malpha + ")";
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+        }
+
+        // Nodes
+        for (var k = 0; k < nodes.length; k++) {
+          var n = nodes[k];
+          n.x += n.vx * dt;
+          n.y += n.vy * dt;
+          if (n.x < 0) n.x += W; else if (n.x > W) n.x -= W;
+          if (n.y < 0) n.y += H; else if (n.y > H) n.y -= H;
+
+          // Mouse repulsion
+          var nmdx = mouse.x - n.x, nmdy = mouse.y - n.y;
+          var nmdist = Math.sqrt(nmdx * nmdx + nmdy * nmdy);
+          if (nmdist < 120 && nmdist > 0) {
+            var force = (120 - nmdist) / 120 * 60;
+            n.x -= (nmdx / nmdist) * force * dt;
+            n.y -= (nmdy / nmdist) * force * dt;
+          }
+
+          n.pulse += n.pulseSpeed * dt;
+          var pulseAlpha = 0.5 + Math.sin(n.pulse) * 0.4;
+          var nr = n.r * (0.9 + Math.sin(n.pulse * 1.3) * 0.25);
+
+          // Glow halo
+          var grd = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, nr * 6);
+          grd.addColorStop(0, "rgba(" + n.color + "," + (pulseAlpha * 0.6) + ")");
+          grd.addColorStop(1, "rgba(" + n.color + ",0)");
           ctx.beginPath();
-          ctx.fillStyle = "rgba(255,255,255," + op + ")";
-          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.arc(n.x, n.y, nr * 6, 0, Math.PI * 2);
+          ctx.fillStyle = grd;
+          ctx.fill();
+
+          // Core dot
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, nr, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(" + n.color + "," + pulseAlpha + ")";
           ctx.fill();
         }
+
+
         requestAnimationFrame(frame);
       }
 
+      // Mouse tracking
+      window.addEventListener("mousemove", function (e) {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+      window.addEventListener("mouseleave", function () {
+        mouse.x = -9999;
+        mouse.y = -9999;
+      });
+      window.addEventListener("touchmove", function (e) {
+        if (e.touches.length > 0) {
+          mouse.x = e.touches[0].clientX;
+          mouse.y = e.touches[0].clientY;
+        }
+      }, { passive: true });
+      window.addEventListener("touchend", function () {
+        mouse.x = -9999;
+        mouse.y = -9999;
+      });
+
       resize();
       init();
-      window.addEventListener("resize", function () {
-        resize();
-        init();
-      });
+      window.addEventListener("resize", function () { resize(); init(); });
       requestAnimationFrame(frame);
     })();
 
@@ -1524,6 +1813,39 @@
       );
       document.querySelectorAll(".role-card").forEach(function (c) { io.observe(c); });
     });
+
+    // Nav scroll effect
+    (function() {
+      var nav = document.querySelector('.nav');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 60) {
+          nav.classList.add('nav--scrolled');
+        } else {
+          nav.classList.remove('nav--scrolled');
+        }
+      });
+
+      // Hamburger toggle
+      var hamburger = document.getElementById('nav-hamburger');
+      var mobileMenu = document.getElementById('nav-mobile');
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function() {
+          var open = mobileMenu.classList.toggle('open');
+          hamburger.classList.toggle('open', open);
+        });
+        // Close mobile menu when clicking a scroll link
+        mobileMenu.querySelectorAll('[data-mobile-link]').forEach(function(link) {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            mobileMenu.classList.remove('open');
+            hamburger.classList.remove('open');
+            var target = link.getAttribute('data-scroll');
+            var el = document.querySelector(target);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          });
+        });
+      }
+    })();
   </script>
 </body>
 </html>

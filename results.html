@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Results — STARKS Tech Club Core Team Recruitment 2026</title>
+  <meta name="description" content="STARKS Tech Club recruitment results for Core Team Selection 2026. Check if you've been selected for a leadership role at SVKM's College of Engineering, Shirpur." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #03050f;
+      --surface: rgba(255, 255, 255, 0.03);
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --text-primary: #f0f4ff;
+      --text-secondary: rgba(180, 200, 255, 0.55);
+      --text-muted: rgba(180, 200, 255, 0.3);
+      --accent: #00e5ff;
+      --accent2: #7b5cff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      background-color: #03050f;
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Background System ── */
+    .bg-mesh {
+      position: fixed; inset: 0; z-index: 0;
+      pointer-events: none; overflow: hidden; background: #03050f;
+    }
+    .bg-mesh::after {
+      content: ""; position: absolute; inset: 0; opacity: 0.03; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      z-index: 2;
+    }
+    .mesh-blob {
+      position: absolute; border-radius: 50%; filter: blur(72px);
+      opacity: 0.6; mix-blend-mode: screen; will-change: transform; z-index: 0;
+    }
+    .mesh-blob--a {
+      width: min(120vw, 900px); height: min(120vw, 900px);
+      background: radial-gradient(circle, rgba(0,229,255,0.45), rgba(0,120,200,0.12) 45%, transparent 70%);
+      top: -18%; left: -12%; animation: meshBlobA 5.5s ease-in-out infinite;
+    }
+    .mesh-blob--b {
+      width: min(110vw, 780px); height: min(110vw, 780px);
+      background: radial-gradient(circle, rgba(123,92,255,0.42), rgba(60,40,160,0.15) 50%, transparent 72%);
+      bottom: -22%; right: -18%; animation: meshBlobB 7s ease-in-out infinite;
+    }
+    .mesh-blob--c {
+      width: min(90vw, 640px); height: min(90vw, 640px);
+      background: radial-gradient(circle, rgba(80,200,255,0.28), rgba(100,80,255,0.12) 55%, transparent 75%);
+      top: 38%; left: 28%; animation: meshBlobC 4.5s ease-in-out infinite;
+    }
+    .mesh-blob--d {
+      width: min(70vw, 520px); height: min(70vw, 520px);
+      background: radial-gradient(circle, rgba(180,100,255,0.22), transparent 65%);
+      top: 8%; right: 5%; animation: meshBlobD 6s ease-in-out infinite;
+    }
+    @keyframes meshBlobA {
+      0%, 100% { transform: translate(0,0) scale(1) rotate(0deg); }
+      40% { transform: translate(12vw,8vh) scale(1.12) rotate(12deg); }
+      70% { transform: translate(4vw,-5vh) scale(0.95) rotate(-6deg); }
+    }
+    @keyframes meshBlobB {
+      0%, 100% { transform: translate(0,0) scale(1.05) rotate(0deg); }
+      45% { transform: translate(-14vw,-10vh) scale(1) rotate(-10deg); }
+      75% { transform: translate(-5vw,6vh) scale(1.18) rotate(8deg); }
+    }
+    @keyframes meshBlobC {
+      0%, 100% { transform: translate(0,0) scale(1) rotate(0deg); }
+      33% { transform: translate(10vw,-14vh) scale(1.08) rotate(15deg); }
+      66% { transform: translate(-12vw,8vh) scale(0.92) rotate(-12deg); }
+    }
+    @keyframes meshBlobD {
+      0%, 100% { transform: translate(0,0) scale(1); }
+      50% { transform: translate(-8vw,12vh) scale(1.15) rotate(20deg); }
+    }
+    #stars { position: fixed; inset: 0; z-index: 1; pointer-events: none; display: block; }
+    .page-wrap { position: relative; z-index: 2; }
+
+    /* ── Navbar ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.75rem;
+      background: rgba(3,5,15,0.7);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.35s, backdrop-filter 0.35s, border-bottom 0.35s, box-shadow 0.35s;
+    }
+    .nav--scrolled {
+      background: rgba(3,5,15,0.88);
+      backdrop-filter: blur(32px) saturate(200%);
+      -webkit-backdrop-filter: blur(32px) saturate(200%);
+      border-bottom: 1px solid rgba(0,229,255,0.18);
+      box-shadow: 0 4px 40px rgba(0,229,255,0.06);
+    }
+    .nav-brand-wrap { display: flex; flex-direction: column; flex-shrink: 0; }
+    .nav-brand { font-family: "Orbitron", sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.3em; }
+    .nav-sub { font-family: "DM Sans", sans-serif; font-size: 0.7rem; color: var(--text-secondary); }
+    .nav-center { display: none; }
+    @media (min-width: 900px) { .nav-center { display: flex; } }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-link {
+      font-family: "Orbitron", sans-serif; font-size: 0.7rem; letter-spacing: 0.18em;
+      color: var(--text-secondary); text-decoration: none; padding-bottom: 2px;
+      transition: color 0.25s; border-bottom: 1px solid transparent;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .nav-right { display: none; }
+    @media (min-width: 900px) { .nav-right { display: flex; align-items: center; } }
+    .nav-cta {
+      font-family: "Orbitron", sans-serif; font-size: 0.7rem; letter-spacing: 0.15em;
+      padding: 10px 22px; border: 1px solid var(--accent); color: var(--accent);
+      background: transparent; border-radius: 2px; cursor: pointer; text-decoration: none;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .nav-cta:hover { background: rgba(0,229,255,0.1); box-shadow: 0 0 20px rgba(0,229,255,0.25); }
+    .nav-hamburger {
+      display: flex; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 6px; z-index: 110;
+    }
+    @media (min-width: 900px) { .nav-hamburger { display: none; } }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--text-primary); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile {
+      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(3,5,15,0.95); backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px); z-index: 105;
+      flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile .nav-link { font-size: 1rem; letter-spacing: 0.2em; padding: 0.75rem 0; }
+    .nav-mobile .nav-cta { margin-top: 1rem; font-size: 0.8rem; padding: 14px 32px; }
+
+    /* ── Shared ── */
+    .section-label {
+      font-family: "Orbitron", sans-serif; font-size: 0.72rem;
+      letter-spacing: 0.25em; color: var(--accent); margin-bottom: 1rem;
+    }
+    .glass-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    }
+    .anim-entry {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .anim-entry.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── SECTION A: Results Hero ── */
+    .results-hero {
+      min-height: 40vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      padding: 6rem 1.5rem 3rem;
+    }
+    .results-hero h1 {
+      font-family: "Orbitron", sans-serif; font-weight: 900;
+      font-size: clamp(2.5rem, 7vw, 5rem); color: var(--text-primary);
+      margin-bottom: 0.5rem; line-height: 1.1;
+    }
+    .results-hero .hero-sub {
+      font-family: "Orbitron", sans-serif; font-weight: 400;
+      font-size: clamp(0.7rem, 1.5vw, 0.9rem); color: var(--text-secondary);
+      letter-spacing: 0.12em;
+    }
+
+    /* ── Pending Banner ── */
+    .pending-banner {
+      max-width: 700px; margin: 2rem auto 0; padding: 3rem 2rem; text-align: center;
+    }
+    .pending-icon { font-size: 3rem; margin-bottom: 1.5rem; }
+    .pending-banner h2 {
+      font-family: "Orbitron", sans-serif; font-weight: 700;
+      font-size: 1.5rem; color: var(--accent); margin-bottom: 0.75rem;
+    }
+    .pending-banner .pending-sub {
+      color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 2.5rem;
+    }
+
+    /* Countdown */
+    .countdown {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+    .countdown-box {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      padding: 1rem 1.25rem; min-width: 80px; text-align: center;
+    }
+    .countdown-value {
+      font-family: "Orbitron", sans-serif; font-size: 1.75rem;
+      font-weight: 700; color: var(--accent);
+    }
+    .countdown-label {
+      font-family: "Orbitron", sans-serif; font-size: 0.55rem;
+      letter-spacing: 0.15em; color: var(--text-secondary); margin-top: 0.35rem;
+    }
+
+    /* ── SECTION B: Timeline Recap ── */
+    .recruit-timeline {
+      padding: 4rem 1.5rem; max-width: 800px; margin: 0 auto;
+    }
+    .recruit-timeline .section-head {
+      text-align: center; margin-bottom: 2.5rem;
+    }
+    .recruit-steps {
+      display: flex; flex-direction: column; gap: 1.5rem; position: relative;
+    }
+    @media (min-width: 768px) {
+      .recruit-steps {
+        flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 0;
+      }
+      .recruit-step { flex: 1; text-align: center; position: relative; padding: 0 0.5rem; }
+      .recruit-step::after {
+        content: ""; position: absolute; top: 20px; left: 50%; width: 100%; height: 0;
+        border-top: 2px dashed rgba(255,255,255,0.12); z-index: -1;
+      }
+      .recruit-step:last-child::after { display: none; }
+    }
+    .recruit-step {
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    }
+    .step-circle {
+      width: 42px; height: 42px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: "Orbitron", sans-serif; font-size: 0.8rem;
+      color: var(--accent); position: relative; z-index: 1;
+    }
+    .step-circle.completed {
+      background: var(--accent); color: #03050f;
+      border: 2px solid var(--accent);
+    }
+    .step-circle.upcoming {
+      background: rgba(3,5,15,0.6);
+      border: 2px solid rgba(0,229,255,0.4);
+    }
+    .recruit-step h4 {
+      font-family: "Orbitron", sans-serif; font-size: 0.78rem;
+      color: var(--text-primary);
+    }
+    .recruit-step .step-date {
+      font-family: "Orbitron", sans-serif; font-size: 0.65rem;
+      color: var(--accent); letter-spacing: 0.1em;
+    }
+
+    /* ── SECTION C: Results Grid (hidden by default) ── */
+    .results-grid-section {
+      padding: 4rem 1.5rem; max-width: 1100px; margin: 0 auto; display: none;
+    }
+    .results-grid-section.show { display: block; }
+    .results-grid-section .section-head {
+      text-align: center; margin-bottom: 2.5rem;
+    }
+    .results-grid-section .section-head h2 {
+      font-family: "Orbitron", sans-serif; font-weight: 700;
+      font-size: clamp(1.35rem, 3.5vw, 2rem); color: var(--text-primary);
+      margin-top: 0.75rem;
+    }
+    .roles-results {
+      display: grid; grid-template-columns: 1fr; gap: 1.5rem;
+    }
+    @media (min-width: 640px) { .roles-results { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .roles-results { grid-template-columns: repeat(3, 1fr); } }
+
+    .result-role-card {
+      padding: 2rem 1.75rem;
+      transition: border-color 0.4s, box-shadow 0.4s;
+    }
+    .result-role-card:hover {
+      box-shadow: 0 0 30px rgba(0,229,255,0.08);
+    }
+    .result-role-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .result-role-name {
+      font-family: "Orbitron", sans-serif; font-size: 0.9rem;
+      color: var(--text-primary); margin-bottom: 1rem;
+      padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .result-candidate {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .result-candidate:last-child { border-bottom: none; }
+    .result-candidate .cand-name {
+      font-family: "Orbitron", sans-serif; font-size: 0.75rem;
+      color: var(--text-primary); letter-spacing: 0.08em;
+    }
+    .result-candidate .cand-info {
+      font-size: 0.8rem; color: var(--text-secondary);
+    }
+    .result-tba {
+      color: var(--text-muted); font-style: italic; font-size: 0.88rem;
+    }
+
+    /* ── SECTION D: What's Next ── */
+    .next-section {
+      padding: 4rem 1.5rem; max-width: 800px; margin: 0 auto;
+    }
+    .next-section .section-head { text-align: center; margin-bottom: 2rem; }
+    .next-section .section-head h2 {
+      font-family: "Orbitron", sans-serif; font-weight: 700;
+      font-size: clamp(1.35rem, 3.5vw, 2rem); color: var(--text-primary);
+      margin-top: 0.75rem;
+    }
+    .next-card {
+      padding: 2.5rem 2rem;
+    }
+    .next-list {
+      list-style: none; counter-reset: step;
+    }
+    .next-list li {
+      counter-increment: step; position: relative; padding-left: 2.5rem;
+      margin-bottom: 1.25rem; color: var(--text-secondary);
+      font-size: 0.95rem; line-height: 1.7;
+    }
+    .next-list li::before {
+      content: counter(step); position: absolute; left: 0; top: 0;
+      width: 28px; height: 28px; border-radius: 50%;
+      font-family: "Orbitron", sans-serif; font-size: 0.7rem;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--accent); color: var(--accent);
+      background: rgba(0,229,255,0.05);
+    }
+
+    /* ── SECTION E: Not Selected ── */
+    .encourage-section {
+      padding: 5rem 1.5rem; text-align: center;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(123,92,255,0.06), rgba(0,229,255,0.04), transparent 70%);
+    }
+    .encourage-section h2 {
+      font-family: "Orbitron", sans-serif; font-weight: 700;
+      font-size: clamp(1.35rem, 3.5vw, 2rem); color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+    .encourage-section .encourage-body {
+      color: var(--text-secondary); max-width: 560px;
+      margin: 0 auto 2rem; line-height: 1.8; font-size: 0.95rem;
+    }
+    .btn-primary {
+      font-family: "Orbitron", sans-serif; font-size: 0.75rem;
+      letter-spacing: 0.15em; padding: 14px 28px;
+      border: 1px solid var(--accent); color: var(--accent);
+      background: transparent; border-radius: 2px; cursor: pointer;
+      text-decoration: none; display: inline-block;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .btn-primary:hover {
+      background: rgba(0,229,255,0.1);
+      box-shadow: 0 0 30px rgba(0,229,255,0.3);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      padding: 48px 1.5rem; text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer p {
+      font-family: "Orbitron", sans-serif; font-size: 0.72rem;
+      color: var(--text-secondary); letter-spacing: 0.08em; margin-bottom: 0.5rem;
+    }
+    .footer .foot-links {
+      display: flex; flex-wrap: wrap; gap: 0.75rem;
+      justify-content: center; margin: 1rem 0;
+    }
+    .footer .foot-links a {
+      font-family: "Orbitron", sans-serif; font-size: 0.65rem;
+      color: var(--text-secondary); text-decoration: none; letter-spacing: 0.12em;
+      transition: color 0.25s;
+    }
+    .footer .foot-links a:hover { color: var(--accent); }
+    .footer .foot-line {
+      font-family: "DM Sans", sans-serif; font-size: 0.85rem;
+      color: var(--text-secondary); letter-spacing: normal;
+    }
+    .footer .foot-note {
+      font-family: "DM Sans", sans-serif; font-size: 0.8rem;
+      color: var(--text-muted); font-style: italic; margin-top: 0.75rem;
+    }
+    .footer .copy {
+      font-family: "DM Sans", sans-serif; font-size: 0.8rem;
+      color: var(--text-muted); margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <span class="mesh-blob mesh-blob--a"></span>
+    <span class="mesh-blob mesh-blob--b"></span>
+    <span class="mesh-blob mesh-blob--c"></span>
+    <span class="mesh-blob mesh-blob--d"></span>
+  </div>
+  <canvas id="stars" aria-hidden="true"></canvas>
+
+  <div class="page-wrap">
+    <!-- NAVBAR -->
+    <header class="nav">
+      <div class="nav-brand-wrap">
+        <div class="nav-brand">◈ STARKS</div>
+        <div class="nav-sub">Starks Club · SVKM Shirpur</div>
+      </div>
+      <nav class="nav-center">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">HOME</a></li>
+          <li><a href="about.html" class="nav-link">ABOUT</a></li>
+          <li><a href="results.html" class="nav-link active">RESULTS</a></li>
+        </ul>
+      </nav>
+      <div class="nav-right">
+        <a href="index.html#roles" class="nav-cta">APPLY NOW</a>
+      </div>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="index.html" class="nav-link">HOME</a>
+      <a href="about.html" class="nav-link">ABOUT</a>
+      <a href="results.html" class="nav-link active">RESULTS</a>
+      <a href="index.html#roles" class="nav-cta">APPLY NOW</a>
+    </div>
+
+    <!-- SECTION A: RESULTS HERO -->
+    <section class="results-hero">
+      <p class="section-label">◈ STARKS RECRUITMENT 2026</p>
+      <h1>RESULTS</h1>
+      <p class="hero-sub">Core Team Selection — Final Announcement</p>
+
+      <!-- Pending Banner (shown when RESULTS_ANNOUNCED = false) -->
+      <div class="pending-banner glass-card anim-entry" id="pending-banner">
+        <div class="pending-icon">⏳</div>
+        <h2>RESULTS PENDING</h2>
+        <p class="pending-sub">Applications close <strong>31 March 2026 at 12:00 AM</strong>. Screening is on <strong>1 April</strong> and interviews on <strong>2 April 2026</strong>. Results will be published here shortly after.</p>
+        <div class="countdown" id="countdown">
+          <div class="countdown-box">
+            <div class="countdown-value" id="cd-days">--</div>
+            <div class="countdown-label">DAYS</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-value" id="cd-hours">--</div>
+            <div class="countdown-label">HRS</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-value" id="cd-mins">--</div>
+            <div class="countdown-label">MINS</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-value" id="cd-secs">--</div>
+            <div class="countdown-label">SECS</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION B: RECRUITMENT TIMELINE RECAP -->
+    <section class="recruit-timeline">
+      <div class="section-head">
+        <p class="section-label">◈ RECRUITMENT TIMELINE</p>
+      </div>
+      <div class="recruit-steps">
+        <div class="recruit-step anim-entry">
+          <div class="step-circle completed">1</div>
+          <h4>Application Deadline</h4>
+          <span class="step-date">31 March 2026</span>
+        </div>
+        <div class="recruit-step anim-entry">
+          <div class="step-circle upcoming">2</div>
+          <h4>Screening</h4>
+          <span class="step-date">1 April 2026</span>
+        </div>
+        <div class="recruit-step anim-entry">
+          <div class="step-circle upcoming">3</div>
+          <h4>Interviews</h4>
+          <span class="step-date">2 April 2026</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION C: RESULTS GRID (hidden until RESULTS_ANNOUNCED = true) -->
+    <section class="results-grid-section" id="results-grid-section">
+      <div class="section-head">
+        <p class="section-label">◈ SELECTED CANDIDATES</p>
+        <h2>Core Team — Final Results</h2>
+      </div>
+      <div class="roles-results" id="roles-results"></div>
+    </section>
+
+    <!-- SECTION D: WHAT'S NEXT -->
+    <section class="next-section" id="next-steps">
+      <div class="section-head">
+        <p class="section-label">◈ SELECTED CANDIDATES</p>
+        <h2>Next Steps</h2>
+      </div>
+      <div class="next-card glass-card anim-entry">
+        <ol class="next-list">
+          <li>You will receive a WhatsApp message with onboarding details</li>
+          <li>Attend the STARKS TECH CLUB orientation session</li>
+          <li>Join the official STARKS members group</li>
+          <li>Your role responsibilities will be shared in the first meeting</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SECTION E: NOT SELECTED -->
+    <section class="encourage-section">
+      <h2>Didn't Make It This Time?</h2>
+      <p class="encourage-body">Don't worry — this is just the beginning. Keep learning, keep building. Participate in our Mini Hackathon (Phase 1 activity), attend workshops, and watch for future recruitment cycles. Your time will come.</p>
+      <a href="about.html" class="btn-primary">EXPLORE STARKS TECH CLUB →</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>◈ STARKS | SVKM College of Engineering, Shirpur</p>
+      <div class="foot-links">
+        <a href="index.html">Home</a>
+        <span style="color:var(--text-muted)">·</span>
+        <a href="about.html">About</a>
+        <span style="color:var(--text-muted)">·</span>
+        <a href="index.html#roles">Roles</a>
+        <span style="color:var(--text-muted)">·</span>
+        <a href="index.html#timeline">Timeline</a>
+        <span style="color:var(--text-muted)">·</span>
+        <a href="results.html">Results</a>
+      </div>
+      <p class="foot-line">Contact: Roshan: 93220 12004 | Ghanshyam: 98343 25688</p>
+      <p class="foot-note">"Only serious candidates should apply."</p>
+      <p class="copy">© 2026 Starks Club. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    /* ═══ CONFIGURATION ═══ */
+    const RESULTS_ANNOUNCED = false;
+
+    const resultsData = [
+      {
+        role: "Technical Lead",
+        icon: "</>",
+        accent: "#00e5ff",
+        selected: [
+          // { name: "Student Name", branch: "CSE", year: "SY" }
+        ]
+      },
+      {
+        role: "PR / Social Media Lead",
+        icon: "🎨",
+        accent: "#b06aff",
+        selected: []
+      },
+      {
+        role: "Event Lead",
+        icon: "🎤",
+        accent: "#ff6ab0",
+        selected: []
+      },
+      {
+        role: "General Secretary",
+        icon: "📋",
+        accent: "#ffd700",
+        selected: []
+      },
+      {
+        role: "Treasurer",
+        icon: "💰",
+        accent: "#00ff9f",
+        selected: []
+      }
+    ];
+
+    /* ── Neural Mesh Canvas ── */
+    (function initNeuralMesh() {
+      var canvas = document.getElementById("stars");
+      var ctx = canvas.getContext("2d");
+      var W = 0, H = 0;
+      var nodes = [];
+      var mouse = { x: -9999, y: -9999 };
+      var last = performance.now();
+
+      var ACCENT = "0,229,255";
+      var ACCENT2 = "123,92,255";
+      var NODE_COUNT = 70;
+      var CONNECT_DIST = 160;
+      var MOUSE_DIST = 200;
+
+
+      function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+        last = performance.now();
+      }
+
+      function init() {
+        nodes = [];
+        for (var i = 0; i < NODE_COUNT; i++) {
+          nodes.push({
+            x: Math.random() * W,
+            y: Math.random() * H,
+            vx: (Math.random() - 0.5) * 18,
+            vy: (Math.random() - 0.5) * 18,
+            r: 1 + Math.random() * 1.5,
+            color: Math.random() > 0.6 ? ACCENT2 : ACCENT,
+            pulse: Math.random() * Math.PI * 2,
+            pulseSpeed: 0.5 + Math.random() * 1.5
+          });
+        }
+      }
+
+      function frame(now) {
+        var dt = Math.min((now - last) / 1000, 0.05);
+        last = now;
+        ctx.clearRect(0, 0, W, H);
+
+
+        for (var i = 0; i < nodes.length; i++) {
+          var a = nodes[i];
+          for (var j = i + 1; j < nodes.length; j++) {
+            var b = nodes[j];
+            var dx = b.x - a.x, dy = b.y - a.y;
+            var dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < CONNECT_DIST) {
+              var alpha = (1 - dist / CONNECT_DIST) * 0.35;
+              var grad = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
+              grad.addColorStop(0, "rgba(" + a.color + "," + alpha + ")");
+              grad.addColorStop(1, "rgba(" + b.color + "," + alpha + ")");
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.strokeStyle = grad;
+              ctx.lineWidth = 0.6;
+              ctx.stroke();
+            }
+          }
+          var mdx = mouse.x - a.x, mdy = mouse.y - a.y;
+          var mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+          if (mdist < MOUSE_DIST) {
+            var malpha = (1 - mdist / MOUSE_DIST) * 0.6;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = "rgba(" + ACCENT + "," + malpha + ")";
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+        }
+
+        for (var k = 0; k < nodes.length; k++) {
+          var n = nodes[k];
+          n.x += n.vx * dt;
+          n.y += n.vy * dt;
+          if (n.x < 0) n.x += W; else if (n.x > W) n.x -= W;
+          if (n.y < 0) n.y += H; else if (n.y > H) n.y -= H;
+
+          var nmdx = mouse.x - n.x, nmdy = mouse.y - n.y;
+          var nmdist = Math.sqrt(nmdx * nmdx + nmdy * nmdy);
+          if (nmdist < 120 && nmdist > 0) {
+            var force = (120 - nmdist) / 120 * 60;
+            n.x -= (nmdx / nmdist) * force * dt;
+            n.y -= (nmdy / nmdist) * force * dt;
+          }
+
+          n.pulse += n.pulseSpeed * dt;
+          var pulseAlpha = 0.5 + Math.sin(n.pulse) * 0.4;
+          var nr = n.r * (0.9 + Math.sin(n.pulse * 1.3) * 0.25);
+
+          var grd = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, nr * 6);
+          grd.addColorStop(0, "rgba(" + n.color + "," + (pulseAlpha * 0.6) + ")");
+          grd.addColorStop(1, "rgba(" + n.color + ",0)");
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, nr * 6, 0, Math.PI * 2);
+          ctx.fillStyle = grd;
+          ctx.fill();
+
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, nr, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(" + n.color + "," + pulseAlpha + ")";
+          ctx.fill();
+        }
+
+
+        requestAnimationFrame(frame);
+      }
+
+      window.addEventListener("mousemove", function (e) { mouse.x = e.clientX; mouse.y = e.clientY; });
+      window.addEventListener("mouseleave", function () { mouse.x = -9999; mouse.y = -9999; });
+      window.addEventListener("touchmove", function (e) {
+        if (e.touches.length > 0) { mouse.x = e.touches[0].clientX; mouse.y = e.touches[0].clientY; }
+      }, { passive: true });
+      window.addEventListener("touchend", function () { mouse.x = -9999; mouse.y = -9999; });
+
+      resize(); init();
+      window.addEventListener("resize", function () { resize(); init(); });
+      requestAnimationFrame(frame);
+    })();
+
+    /* ── Nav scroll + Hamburger ── */
+    (function() {
+      var nav = document.querySelector('.nav');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 60) { nav.classList.add('nav--scrolled'); }
+        else { nav.classList.remove('nav--scrolled'); }
+      });
+      var hamburger = document.getElementById('nav-hamburger');
+      var mobileMenu = document.getElementById('nav-mobile');
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function() {
+          var open = mobileMenu.classList.toggle('open');
+          hamburger.classList.toggle('open', open);
+        });
+      }
+    })();
+
+    /* ── Countdown Timer ── */
+    (function() {
+      if (RESULTS_ANNOUNCED) return;
+
+      var target = new Date("2026-04-02T00:00:00+05:30").getTime();
+      var cdDays = document.getElementById("cd-days");
+      var cdHours = document.getElementById("cd-hours");
+      var cdMins = document.getElementById("cd-mins");
+      var cdSecs = document.getElementById("cd-secs");
+
+      function pad(n) { return n < 10 ? "0" + n : String(n); }
+
+      function tick() {
+        var now = Date.now();
+        var diff = target - now;
+        if (diff <= 0) {
+          cdDays.textContent = "00";
+          cdHours.textContent = "00";
+          cdMins.textContent = "00";
+          cdSecs.textContent = "00";
+          return;
+        }
+        var d = Math.floor(diff / 86400000);
+        var h = Math.floor((diff % 86400000) / 3600000);
+        var m = Math.floor((diff % 3600000) / 60000);
+        var s = Math.floor((diff % 60000) / 1000);
+        cdDays.textContent = pad(d);
+        cdHours.textContent = pad(h);
+        cdMins.textContent = pad(m);
+        cdSecs.textContent = pad(s);
+      }
+
+      tick();
+      setInterval(tick, 1000);
+    })();
+
+    /* ── Results Toggle ── */
+    (function() {
+      var pending = document.getElementById("pending-banner");
+      var gridSection = document.getElementById("results-grid-section");
+      var grid = document.getElementById("roles-results");
+
+      if (RESULTS_ANNOUNCED) {
+        if (pending) pending.style.display = "none";
+        if (gridSection) gridSection.classList.add("show");
+
+        resultsData.forEach(function(role) {
+          var card = document.createElement("div");
+          card.className = "result-role-card glass-card anim-entry";
+          card.style.borderColor = role.accent + "30";
+
+          var candidatesHtml = "";
+          if (role.selected.length === 0) {
+            candidatesHtml = '<p class="result-tba">To be announced</p>';
+          } else {
+            role.selected.forEach(function(c) {
+              candidatesHtml += '<div class="result-candidate">' +
+                '<div class="cand-name">' + c.name + '</div>' +
+                '<div class="cand-info">' + c.branch + ' · ' + c.year + '</div>' +
+                '</div>';
+            });
+          }
+
+          card.innerHTML =
+            '<div class="result-role-icon">' + role.icon + '</div>' +
+            '<div class="result-role-name" style="border-bottom-color:' + role.accent + '30">' + role.role + '</div>' +
+            candidatesHtml;
+
+          grid.appendChild(card);
+        });
+      } else {
+        if (pending) pending.style.display = "";
+        if (gridSection) gridSection.classList.remove("show");
+      }
+    })();
+
+    /* ── IntersectionObserver ── */
+    (function() {
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          var el = entry.target;
+          var idx = parseInt(el.dataset.staggerIndex || "0", 10);
+          el.style.transitionDelay = idx * 0.12 + "s";
+          el.classList.add("visible");
+          window.setTimeout(function() { el.style.transitionDelay = ""; }, idx * 120 + 650);
+          io.unobserve(el);
+        });
+      }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
+
+      var globalIdx = 0;
+      document.querySelectorAll('.anim-entry').forEach(function(el) {
+        el.dataset.staggerIndex = String(globalIdx++);
+        io.observe(el);
+      });
+    })();
+  </script>
+</body>
+</html>
