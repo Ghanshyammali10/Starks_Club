@@ -108,7 +108,21 @@
       box-shadow: 0 4px 40px rgba(0,229,255,0.06);
     }
     .nav-brand-wrap { display: flex; flex-direction: column; flex-shrink: 0; }
-    .nav-brand { font-family: "Orbitron", sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.3em; }
+    .nav-brand {
+      font-family: "Orbitron", sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.3em;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-logo {
+      height: 3.8rem;
+      width: auto;
+      display: block;
+    }
     .nav-sub { font-family: "DM Sans", sans-serif; font-size: 0.7rem; color: var(--text-secondary); }
     .nav-center { display: none; }
     @media (min-width: 900px) { .nav-center { display: flex; } }
@@ -546,10 +560,7 @@
   <div class="page-wrap">
     <!-- NAVBAR -->
     <header class="nav">
-      <div class="nav-brand-wrap">
-        <div class="nav-brand">◈ STARKS</div>
-        <div class="nav-sub">Starks Club · SVKM Shirpur</div>
-      </div>
+     <div class="nav-brand"><img src="Logo.png" alt="STARKS Tech Club" class="nav-logo"></div>
       <nav class="nav-center">
         <ul class="nav-links">
           <li><a href="index.html" class="nav-link">HOME</a></li>
@@ -762,7 +773,7 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-      <p>◈ STARKS | SVKM College of Engineering, Shirpur</p>
+      <p><img src="Logo.png" alt="STARKS" style="height:1.2rem; vertical-align:middle; margin-right:8px;"> | SVKM College of Engineering, Shirpur</p>
       <div class="foot-links">
         <a href="index.html">Home</a>
         <span style="color:var(--text-muted)">·</span>
