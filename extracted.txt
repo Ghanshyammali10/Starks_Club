@@ -1,0 +1,66 @@
+# | Candidate Name | Row | Year | Dept
+1 | Mali Ghanshyam Ramchandra | Row 6 | 2nd Year | CSE
+2 | Sushant Ravindra Koli | Row 9 | 2nd Year | CSE
+3 | Roshan Chandrakant Bhadane | Row 13 | 2nd Year | CSE
+4 | Jayesh Ravindra Koli | Row 21 | 2nd Year | CSE
+5 | Kartik Dattatray Patil | Row 24 | 2nd Year | CSE
+6 | Tejas Ravindra Badgujar | Row 26 | 2nd Year | CSE
+7 | Saksham Vilas Chaudhari | Row 17 | 2nd Year | CSE
+8 | Kundan Jadhav | Row 28 | 2nd Year | ECE
+9 | Hemesh Sanjay Patel | Row 23 | 2nd Year | CSE
+10 | Mayur Daulat Sonawane | Row 10 | 1st Year | IT
+11 | Ritesh Jitendra Girase | Row 15 | 2nd Year | ECE
+---TABLE END---
+# | Candidate Name | Row | Year | Dept
+1 | Niranjan Samadhan Patil | Row 6 | 2nd Year | IT
+2 | Gaurav Anil Suryawanshi | Row 7 | 2nd Year | IT
+3 | Wankhede Mahesh Satilal | Row 8 | 2nd Year | CSE
+4 | Manas Ganesh Mahajan | Row 9 | 2nd Year | CSE
+5 | Aarushi Mahendra Chaudhari | Row 12 | 1st Year | CSE
+6 | Patil Chandrashekhar Pravin | Row 2 | 2nd Year | IT
+7 | Himani Dinesh Patil | Row 14 | 2nd Year | CSE
+8 | Gayatri Chandrakant Patil | Row 11 | 1st Year | CSE
+9 | Shreyash Sharad Patil | Row 10 | 1st Year | CSE
+10 | Gaurav Hansraj Randive | Row 13 | 1st Year | IT
+11 | Lokhande Tanay Chandrashekhar | Row 15 | 2nd Year | ECE
+12 | Siddhant Vinayak Patil | Row 16 | 2nd Year | DS
+---TABLE END---
+# | Candidate Name | Row | Year | Dept
+1 | Girase Dipesh Narendrasing | Row 4 | 2nd Year | CSE
+2 | Krushna Kishor Patil | Row 8 | 2nd Year | CSE
+3 | Girase Vaishnavi Lalsing | Row 37 | 2nd Year | CSE
+4 | Pragati Deshmukh | Row 14 | 1st Year | DS
+5 | Soham Pradip Chikorde | Row 9 | 2nd Year | CSE
+6 | Nakshatra Pradeep Ahire | Row 39 | 2nd Year | IT
+7 | Rohan Bhaskar Thakare | Row 25 | 2nd Year | ECE
+8 | Meet Sudhakar Jagtap | Row 11 | 2nd Year | IT
+9 | Ashwini Avinash Shirsath | Row 7 | 2nd Year | CSE
+10 | Patil Mohini Rajuramdas | Row 17 | 2nd Year | CSE
+11 | Shreyesh Shrikant Bhat | Row 34 | 2nd Year | CSE
+---TABLE END---
+# | Candidate Name | Row | Year | Dept
+1 | Zeeshan Shaikh | Row 5 | 1st Year | CSE
+2 | Dhanashri Umesh Suryawanshi | Row 7 | 2nd Year | ECE
+3 | Pawar Kaveri Dipaksinh | Row 9 | 2nd Year | CSE
+4 | Dipali Dinkar Ishi | Row 10 | 2nd Year | CSE
+5 | Ruchita Devidas Borse | Row 12 | 2nd Year | CSE
+6 | Mrunal Manoj Borse | Row 14 | 2nd Year | CSE
+---TABLE END---
+# | Candidate Name | Row | Year | Dept
+1 | Rajput Bhavishyasing Yogendra | Row 9 | 2nd Year | CSE
+2 | Piyush Kashinath Ishi | Row 11 | 2nd Year | CSE
+3 | Atharva Sharad Patil | Row 7 | 2nd Year | CSE
+4 | Pavan Bhaskar Patil | Row 8 | 2nd Year | IT
+5 | Patil Aditya Narayan | Row 6 | 2nd Year | CSE
+---TABLE END---
+=== PARAGRAPHS ===
+STARKS TECH CLUB
+Interview Candidates — Finalized List
+SVKM College of Engineering, Shirpur  •  Recruitment Drive 2026
+45 Candidates  ·  5 Roles  ·  All Branches
+Tech Team   11 candidates
+PR / Social Media   12 candidates
+Event Lead   11 candidates
+General Secretary   6 candidates
+Treasurer   5 candidates
+This document is for internal use by STARKS Tech Club only.

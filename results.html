@@ -258,6 +258,21 @@
       background: var(--accent); color: #03050f;
       border: 2px solid var(--accent);
     }
+    .step-circle.active {
+      background: #03050f; color: var(--accent);
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 20px rgba(0,229,255,0.3);
+      position: relative;
+    }
+    .step-circle.active::after {
+      content: ""; position: absolute; inset: -5px;
+      border: 1px solid var(--accent); border-radius: 50%;
+      animation: stepPulse 2s infinite;
+    }
+    @keyframes stepPulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      100% { transform: scale(1.4); opacity: 0; }
+    }
     .step-circle.upcoming {
       background: rgba(3,5,15,0.6);
       border: 2px solid rgba(0,229,255,0.4);
@@ -447,8 +462,8 @@
     <!-- SECTION A: RESULTS HERO -->
     <section class="results-hero">
       <p class="section-label">◈ STARKS RECRUITMENT 2026</p>
-      <h1>RESULTS</h1>
-      <p class="hero-sub">Core Team Selection — Final Announcement</p>
+      <h1>INTERVIEW CANDIDATES</h1>
+      <p class="hero-sub">45 Candidates · 5 Roles · All Branches — Recruitment Drive 2026</p>
 
       <!-- Pending Banner (shown when RESULTS_ANNOUNCED = false) -->
       <div class="pending-banner glass-card anim-entry" id="pending-banner">
@@ -481,19 +496,19 @@
       <div class="section-head">
         <p class="section-label">◈ RECRUITMENT TIMELINE</p>
       </div>
-      <div class="recruit-steps">
-        <div class="recruit-step anim-entry">
-          <div class="step-circle completed">1</div>
+      <div class="recruit-steps" id="timeline-steps">
+        <div class="recruit-step anim-entry" data-date="2026-04-02">
+          <div class="step-circle">1</div>
           <h4>Application Deadline</h4>
           <span class="step-date">2 April 2026</span>
         </div>
-        <div class="recruit-step anim-entry">
-          <div class="step-circle upcoming">2</div>
+        <div class="recruit-step anim-entry" data-date="2026-04-03">
+          <div class="step-circle">2</div>
           <h4>Screening</h4>
           <span class="step-date">3 April 2026</span>
         </div>
-        <div class="recruit-step anim-entry">
-          <div class="step-circle upcoming">3</div>
+        <div class="recruit-step anim-entry" data-date="2026-04-04">
+          <div class="step-circle">3</div>
           <h4>Interviews</h4>
           <span class="step-date">4 April 2026</span>
         </div>
@@ -503,8 +518,8 @@
     <!-- SECTION C: RESULTS GRID (hidden until RESULTS_ANNOUNCED = true) -->
     <section class="results-grid-section" id="results-grid-section">
       <div class="section-head">
-        <p class="section-label">◈ SELECTED CANDIDATES</p>
-        <h2>Core Team — Final Results</h2>
+        <p class="section-label">◈ INTERVIEW CANDIDATES</p>
+        <h2>Selected for Interview — By Role</h2>
       </div>
       <div class="roles-results" id="roles-results"></div>
     </section>
@@ -512,17 +527,37 @@
     <!-- SECTION D: WHAT'S NEXT -->
     <section class="next-section" id="next-steps">
       <div class="section-head">
-        <p class="section-label">◈ SELECTED CANDIDATES</p>
-        <h2>Next Steps</h2>
+        <p class="section-label">◈ WHAT'S NEXT?</p>
+        <h2>Preparation Guide</h2>
       </div>
-      <div class="next-card glass-card anim-entry">
-        <ol class="next-list">
-          <li>You will receive a WhatsApp message with onboarding details</li>
-          <li>Attend the STARKS TECH CLUB orientation session</li>
-          <li>Join the official STARKS members group</li>
-          <li>Your role responsibilities will be shared in the first meeting</li>
-        </ol>
+      
+      <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 2.5rem;" id="preparation-container">
+        <!-- Next Steps Card -->
+        <div class="next-card glass-card anim-entry">
+          <h3 style="font-family: 'Orbitron', sans-serif; font-size: 0.9rem; color: var(--accent); margin-bottom: 1.5rem; text-transform: uppercase;">Next Steps</h3>
+          <ol class="next-list">
+            <li><strong>Interviews:</strong> Scheduled for <strong>4 April 2026</strong>.</li>
+            <li><strong>WhatsApp:</strong> Individual slots and venue/link will be shared via our official WhatsApp group.</li>
+            <li><strong>Final Results:</strong> Selection for the Core Team will be announced on <strong>6 April 2026</strong>.</li>
+          </ol>
+        </div>
+
+        <!-- Tips Card -->
+        <div class="next-card glass-card anim-entry">
+          <h3 style="font-family: 'Orbitron', sans-serif; font-size: 0.9rem; color: var(--accent2); margin-bottom: 1.5rem; text-transform: uppercase;">Interview Tips</h3>
+          <ul class="next-list">
+            <li><strong>Know STARKS:</strong> Be ready to discuss our mission and how you can contribute to the club's growth.</li>
+            <li><strong>Demo Ready:</strong> For Tech roles, keep your GitHub/Projects open. For PR/Design, have your portfolio ready.</li>
+            <li><strong>Punctuality:</strong> Join the link or reach the venue at least 10 minutes before your slot.</li>
+            <li><strong>Be Authentic:</strong> We value passion and the willingness to learn above all else.</li>
+          </ul>
+        </div>
       </div>
+
+      <style>
+        #preparation-container { grid-template-columns: 1fr; }
+        @media (min-width: 850px) { #preparation-container { grid-template-columns: 1fr 1fr; } }
+      </style>
     </section>
 
     <!-- SECTION E: NOT SELECTED -->
@@ -554,40 +589,88 @@
 
   <script>
     /* ═══ CONFIGURATION ═══ */
-    const RESULTS_ANNOUNCED = false;
+    const RESULTS_ANNOUNCED = true;
 
     const resultsData = [
       {
-        role: "Technical Lead",
+        role: "Tech Team",
         icon: "</>",
         accent: "#00e5ff",
         selected: [
-          // { name: "Student Name", branch: "CSE", year: "SY" }
+          { name: "Mali Ghanshyam Ramchandra", branch: "CSE", year: "2nd Year" },
+          { name: "Sushant Ravindra Koli", branch: "CSE", year: "2nd Year" },
+          { name: "Roshan Chandrakant Bhadane", branch: "CSE", year: "2nd Year" },
+          { name: "Jayesh Ravindra Koli", branch: "CSE", year: "2nd Year" },
+          { name: "Kartik Dattatray Patil", branch: "CSE", year: "2nd Year" },
+          { name: "Tejas Ravindra Badgujar", branch: "CSE", year: "2nd Year" },
+          { name: "Saksham Vilas Chaudhari", branch: "CSE", year: "2nd Year" },
+          { name: "Kundan Jadhav", branch: "ECE", year: "2nd Year" },
+          { name: "Hemesh Sanjay Patel", branch: "CSE", year: "2nd Year" },
+          { name: "Mayur Daulat Sonawane", branch: "IT", year: "1st Year" },
+          { name: "Ritesh Jitendra Girase", branch: "ECE", year: "2nd Year" }
         ]
       },
       {
-        role: "PR / Social Media Lead",
+        role: "PR / Social Media",
         icon: "🎨",
         accent: "#b06aff",
-        selected: []
+        selected: [
+          { name: "Niranjan Samadhan Patil", branch: "IT", year: "2nd Year" },
+          { name: "Gaurav Anil Suryawanshi", branch: "IT", year: "2nd Year" },
+          { name: "Wankhede Mahesh Satilal", branch: "CSE", year: "2nd Year" },
+          { name: "Manas Ganesh Mahajan", branch: "CSE", year: "2nd Year" },
+          { name: "Aarushi Mahendra Chaudhari", branch: "CSE", year: "1st Year" },
+          { name: "Patil Chandrashekhar Pravin", branch: "IT", year: "2nd Year" },
+          { name: "Himani Dinesh Patil", branch: "CSE", year: "2nd Year" },
+          { name: "Gayatri Chandrakant Patil", branch: "CSE", year: "1st Year" },
+          { name: "Shreyash Sharad Patil", branch: "CSE", year: "1st Year" },
+          { name: "Gaurav Hansraj Randive", branch: "IT", year: "1st Year" },
+          { name: "Lokhande Tanay Chandrashekhar", branch: "ECE", year: "2nd Year" },
+          { name: "Siddhant Vinayak Patil", branch: "DS", year: "2nd Year" }
+        ]
       },
       {
         role: "Event Lead",
         icon: "🎤",
         accent: "#ff6ab0",
-        selected: []
+        selected: [
+          { name: "Girase Dipesh Narendrasing", branch: "CSE", year: "2nd Year" },
+          { name: "Krushna Kishor Patil", branch: "CSE", year: "2nd Year" },
+          { name: "Girase Vaishnavi Lalsing", branch: "CSE", year: "2nd Year" },
+          { name: "Pragati Deshmukh", branch: "DS", year: "1st Year" },
+          { name: "Soham Pradip Chikorde", branch: "CSE", year: "2nd Year" },
+          { name: "Nakshatra Pradeep Ahire", branch: "IT", year: "2nd Year" },
+          { name: "Rohan Bhaskar Thakare", branch: "ECE", year: "2nd Year" },
+          { name: "Meet Sudhakar Jagtap", branch: "IT", year: "2nd Year" },
+          { name: "Ashwini Avinash Shirsath", branch: "CSE", year: "2nd Year" },
+          { name: "Patil Mohini Rajuramdas", branch: "CSE", year: "2nd Year" },
+          { name: "Shreyesh Shrikant Bhat", branch: "CSE", year: "2nd Year" }
+        ]
       },
       {
         role: "General Secretary",
         icon: "📋",
         accent: "#ffd700",
-        selected: []
+        selected: [
+          { name: "Zeeshan Shaikh", branch: "CSE", year: "1st Year" },
+          { name: "Dhanashri Umesh Suryawanshi", branch: "ECE", year: "2nd Year" },
+          { name: "Pawar Kaveri Dipaksinh", branch: "CSE", year: "2nd Year" },
+          { name: "Dipali Dinkar Ishi", branch: "CSE", year: "2nd Year" },
+          { name: "Ruchita Devidas Borse", branch: "CSE", year: "2nd Year" },
+          { name: "Mrunal Manoj Borse", branch: "CSE", year: "2nd Year" }
+        ]
       },
       {
         role: "Treasurer",
         icon: "💰",
         accent: "#00ff9f",
-        selected: []
+        selected: [
+          { name: "Rajput Bhavishyasing Yogendra", branch: "CSE", year: "2nd Year" },
+          { name: "Piyush Kashinath Ishi", branch: "CSE", year: "2nd Year" },
+          { name: "Atharva Sharad Patil", branch: "CSE", year: "2nd Year" },
+          { name: "Pavan Bhaskar Patil", branch: "IT", year: "2nd Year" },
+          { name: "Patil Aditya Narayan", branch: "CSE", year: "2nd Year" }
+        ]
       }
     ];
 
@@ -771,6 +854,28 @@
 
     /* ── Results Toggle ── */
     (function() {
+      // Live Timeline Sync
+      const timelineSteps = document.querySelectorAll('#timeline-steps .recruit-step');
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      timelineSteps.forEach(step => {
+        const dateStr = step.getAttribute('data-date');
+        const stepDate = new Date(dateStr);
+        stepDate.setHours(0, 0, 0, 0);
+        const circle = step.querySelector('.step-circle');
+
+        circle.classList.remove('completed', 'active', 'upcoming');
+
+        if (stepDate < today) {
+          circle.classList.add('completed');
+        } else if (stepDate.getTime() === today.getTime()) {
+          circle.classList.add('active');
+        } else {
+          circle.classList.add('upcoming');
+        }
+      });
+
       var pending = document.getElementById("pending-banner");
       var gridSection = document.getElementById("results-grid-section");
       var grid = document.getElementById("roles-results");
