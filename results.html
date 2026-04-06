@@ -224,68 +224,6 @@
       letter-spacing: 0.15em; color: var(--text-secondary); margin-top: 0.35rem;
     }
 
-    /* ── SECTION B: Timeline Recap ── */
-    .recruit-timeline {
-      padding: 4rem 1.5rem; max-width: 800px; margin: 0 auto;
-    }
-    .recruit-timeline .section-head {
-      text-align: center; margin-bottom: 2.5rem;
-    }
-    .recruit-steps {
-      display: flex; flex-direction: column; gap: 1.5rem; position: relative;
-    }
-    @media (min-width: 768px) {
-      .recruit-steps {
-        flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 0;
-      }
-      .recruit-step { flex: 1; text-align: center; position: relative; padding: 0 0.5rem; }
-      .recruit-step::after {
-        content: ""; position: absolute; top: 20px; left: 50%; width: 100%; height: 0;
-        border-top: 2px dashed rgba(255,255,255,0.12); z-index: -1;
-      }
-      .recruit-step:last-child::after { display: none; }
-    }
-    .recruit-step {
-      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-    }
-    .step-circle {
-      width: 42px; height: 42px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: "Orbitron", sans-serif; font-size: 0.8rem;
-      color: var(--accent); position: relative; z-index: 1;
-    }
-    .step-circle.completed {
-      background: var(--accent); color: #03050f;
-      border: 2px solid var(--accent);
-    }
-    .step-circle.active {
-      background: #03050f; color: var(--accent);
-      border: 2px solid var(--accent);
-      box-shadow: 0 0 20px rgba(0,229,255,0.3);
-      position: relative;
-    }
-    .step-circle.active::after {
-      content: ""; position: absolute; inset: -5px;
-      border: 1px solid var(--accent); border-radius: 50%;
-      animation: stepPulse 2s infinite;
-    }
-    @keyframes stepPulse {
-      0% { transform: scale(1); opacity: 0.8; }
-      100% { transform: scale(1.4); opacity: 0; }
-    }
-    .step-circle.upcoming {
-      background: rgba(3,5,15,0.6);
-      border: 2px solid rgba(0,229,255,0.4);
-    }
-    .recruit-step h4 {
-      font-family: "Orbitron", sans-serif; font-size: 0.78rem;
-      color: var(--text-primary);
-    }
-    .recruit-step .step-date {
-      font-family: "Orbitron", sans-serif; font-size: 0.65rem;
-      color: var(--accent); letter-spacing: 0.1em;
-    }
-
     /* ── SECTION C: Results Grid (hidden by default) ── */
     .results-grid-section {
       padding: 4rem 1.5rem; max-width: 1100px; margin: 0 auto; display: none;
@@ -324,15 +262,50 @@
     }
     .result-candidate:last-child { border-bottom: none; }
     .result-candidate .cand-name {
-      font-family: "Orbitron", sans-serif; font-size: 0.75rem;
-      color: var(--text-primary); letter-spacing: 0.08em;
+      font-family: "Orbitron", sans-serif; font-size: 0.85rem;
+      color: var(--text-primary); letter-spacing: 0.05em;
+      margin-bottom: 2px;
+      font-weight: 500;
     }
     .result-candidate .cand-info {
-      font-size: 0.8rem; color: var(--text-secondary);
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cand-status {
+      font-family: "Orbitron", sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .status--lead {
+      font-weight: 800;
+      color: var(--status-color);
+      text-shadow: 0 0 12px color-mix(in srgb, var(--status-color) 60%, transparent);
+    }
+    .status--mid {
+      font-weight: 700;
+      color: color-mix(in srgb, var(--status-color) 85%, white);
+      text-shadow: 0 0 8px color-mix(in srgb, var(--status-color) 30%, transparent);
+    }
+    .status--member {
+      font-weight: 500;
+      color: color-mix(in srgb, var(--status-color) 45%, var(--text-secondary));
+      text-shadow: 0 0 5px color-mix(in srgb, var(--status-color) 20%, transparent);
+      letter-spacing: 0.03em;
+    }
+    .cand-sep {
+      color: var(--text-muted);
+      opacity: 0.4;
     }
     .result-tba {
       color: var(--text-muted); font-style: italic; font-size: 0.88rem;
     }
+
+
 
     /* ── SECTION D: What's Next ── */
     .next-section {
@@ -445,7 +418,7 @@
         </ul>
       </nav>
       <div class="nav-right">
-        <a href="index.html#roles" class="nav-cta">APPLY NOW</a>
+        <span class="nav-cta" style="border-color: rgba(255,255,255,0.1); color: var(--text-muted); cursor: default;">RECRUITMENT CLOSED</span>
       </div>
       <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -456,70 +429,22 @@
       <a href="index.html" class="nav-link">HOME</a>
       <a href="about.html" class="nav-link">ABOUT</a>
       <a href="results.html" class="nav-link active">RESULTS</a>
-      <a href="index.html#roles" class="nav-cta">APPLY NOW</a>
     </div>
 
     <!-- SECTION A: RESULTS HERO -->
     <section class="results-hero">
       <p class="section-label">◈ STARKS RECRUITMENT 2026</p>
-      <h1>INTERVIEW CANDIDATES</h1>
-      <p class="hero-sub">45 Candidates · 5 Roles · All Branches — Recruitment Drive 2026</p>
+      <h1>CORE TEAM 2026</h1>
+      <p class="hero-sub">33 Members · 5 Teams · All Branches — Recruitment Drive 2026</p>
 
-      <!-- Pending Banner (shown when RESULTS_ANNOUNCED = false) -->
-      <div class="pending-banner glass-card anim-entry" id="pending-banner">
-        <div class="pending-icon">⏳</div>
-        <h2>RESULTS PENDING</h2>
-        <p class="pending-sub">Applications close <strong>2 April 2026 at 11:59 PM</strong>. Screening is on <strong>3 April</strong> and interviews on <strong>4 April 2026</strong>. Results will be published here shortly after.</p>
-        <div class="countdown" id="countdown">
-          <div class="countdown-box">
-            <div class="countdown-value" id="cd-days">--</div>
-            <div class="countdown-label">DAYS</div>
-          </div>
-          <div class="countdown-box">
-            <div class="countdown-value" id="cd-hours">--</div>
-            <div class="countdown-label">HRS</div>
-          </div>
-          <div class="countdown-box">
-            <div class="countdown-value" id="cd-mins">--</div>
-            <div class="countdown-label">MINS</div>
-          </div>
-          <div class="countdown-box">
-            <div class="countdown-value" id="cd-secs">--</div>
-            <div class="countdown-label">SECS</div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- SECTION B: RECRUITMENT TIMELINE RECAP -->
-    <section class="recruit-timeline">
-      <div class="section-head">
-        <p class="section-label">◈ RECRUITMENT TIMELINE</p>
-      </div>
-      <div class="recruit-steps" id="timeline-steps">
-        <div class="recruit-step anim-entry" data-date="2026-04-02">
-          <div class="step-circle">1</div>
-          <h4>Application Deadline</h4>
-          <span class="step-date">2 April 2026</span>
-        </div>
-        <div class="recruit-step anim-entry" data-date="2026-04-03">
-          <div class="step-circle">2</div>
-          <h4>Screening</h4>
-          <span class="step-date">3 April 2026</span>
-        </div>
-        <div class="recruit-step anim-entry" data-date="2026-04-04">
-          <div class="step-circle">3</div>
-          <h4>Interviews</h4>
-          <span class="step-date">4 April 2026</span>
-        </div>
-      </div>
     </section>
 
     <!-- SECTION C: RESULTS GRID (hidden until RESULTS_ANNOUNCED = true) -->
     <section class="results-grid-section" id="results-grid-section">
       <div class="section-head">
-        <p class="section-label">◈ INTERVIEW CANDIDATES</p>
-        <h2>Selected for Interview — By Role</h2>
+        <p class="section-label">◈ CORE TEAM SELECTION</p>
+        <h2>The Official Core Team 2026</h2>
       </div>
       <div class="roles-results" id="roles-results"></div>
     </section>
@@ -534,22 +459,22 @@
       <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 2.5rem;" id="preparation-container">
         <!-- Next Steps Card -->
         <div class="next-card glass-card anim-entry">
-          <h3 style="font-family: 'Orbitron', sans-serif; font-size: 0.9rem; color: var(--accent); margin-bottom: 1.5rem; text-transform: uppercase;">Next Steps</h3>
+          <h3 style="font-family: 'Orbitron', sans-serif; font-size: 0.9rem; color: var(--accent); margin-bottom: 1.5rem; text-transform: uppercase;">Onboarding Steps</h3>
           <ol class="next-list">
-            <li><strong>Interviews:</strong> Scheduled for <strong>4 April 2026</strong>.</li>
-            <li><strong>WhatsApp:</strong> Individual slots and venue/link will be shared via our official WhatsApp group.</li>
-            <li><strong>Final Results:</strong> Selection for the Core Team will be announced on <strong>6 April 2026</strong>.</li>
+            <li><strong>Official Group:</strong> All selected members will be added to the Core Team 2026 WhatsApp group.</li>
+            <li><strong>Selection Meet:</strong> The Core Team list is now live. Selected candidates will receive further instructions via email/WhatsApp.</li>
+            <li><strong>Internal Portal:</strong> Logins for the STARKS Dashboard will be shared with the selected members shortly.</li>
           </ol>
         </div>
 
-        <!-- Tips Card -->
+        <!-- Team Goals Card -->
         <div class="next-card glass-card anim-entry">
-          <h3 style="font-family: 'Orbitron', sans-serif; font-size: 0.9rem; color: var(--accent2); margin-bottom: 1.5rem; text-transform: uppercase;">Interview Tips</h3>
+          <h3 style="font-family: 'Orbitron', sans-serif; font-size: 0.9rem; color: var(--accent2); margin-bottom: 1.5rem; text-transform: uppercase;">Our 2026 Vision</h3>
           <ul class="next-list">
-            <li><strong>Know STARKS:</strong> Be ready to discuss our mission and how you can contribute to the club's growth.</li>
-            <li><strong>Demo Ready:</strong> For Tech roles, keep your GitHub/Projects open. For PR/Design, have your portfolio ready.</li>
-            <li><strong>Punctuality:</strong> Join the link or reach the venue at least 10 minutes before your slot.</li>
-            <li><strong>Be Authentic:</strong> We value passion and the willingness to learn above all else.</li>
+            <li><strong>Innovation Phase:</strong> Starting our major project builds for the Tech Fest.</li>
+            <li><strong>Collaboration:</strong> Inter-departmental synergy between PR, Tech, and Event teams.</li>
+            <li><strong>Community:</strong> Mentoring the next batch and conducting high-impact workshops.</li>
+            <li><strong>Leadership:</strong> Taking ownership of club operations and student engagement.</li>
           </ul>
         </div>
       </div>
@@ -577,8 +502,6 @@
         <span style="color:var(--text-muted)">·</span>
         <a href="index.html#roles">Roles</a>
         <span style="color:var(--text-muted)">·</span>
-        <a href="index.html#timeline">Timeline</a>
-        <span style="color:var(--text-muted)">·</span>
         <a href="results.html">Results</a>
       </div>
       <p class="foot-line">Contact: Roshan: 93220 12004 | Ghanshyam: 98343 25688</p>
@@ -597,54 +520,48 @@
         icon: "</>",
         accent: "#00e5ff",
         selected: [
-          { name: "Mali Ghanshyam Ramchandra", branch: "CSE", year: "2nd Year" },
-          { name: "Sushant Ravindra Koli", branch: "CSE", year: "2nd Year" },
-          { name: "Roshan Chandrakant Bhadane", branch: "CSE", year: "2nd Year" },
-          { name: "Jayesh Ravindra Koli", branch: "CSE", year: "2nd Year" },
-          { name: "Kartik Dattatray Patil", branch: "CSE", year: "2nd Year" },
-          { name: "Tejas Ravindra Badgujar", branch: "CSE", year: "2nd Year" },
-          { name: "Saksham Vilas Chaudhari", branch: "CSE", year: "2nd Year" },
-          { name: "Kundan Jadhav", branch: "ECE", year: "2nd Year" },
-          { name: "Hemesh Sanjay Patel", branch: "CSE", year: "2nd Year" },
-          { name: "Mayur Daulat Sonawane", branch: "IT", year: "1st Year" },
-          { name: "Ritesh Jitendra Girase", branch: "ECE", year: "2nd Year" }
+          { "role": "Lead",     "name": "Mali Ghanshyam Ramchandra",  "department": "CSE", "isLead": true  },
+          { "role": "Co-Lead",  "name": "Tejas Ravindra Badgujar",    "department": "CSE", "isLead": true  },
+          { "role": "Co-Lead",  "name": "Saksham Vilas Chaudhari",    "department": "CSE", "isLead": true  },
+          { "role": "Member",   "name": "Sushant Ravindra Koli",      "department": "CSE", "isLead": false },
+          { "role": "Member",   "name": "Jayesh Ravindra Koli",       "department": "CSE", "isLead": false },
+          { "role": "Member",   "name": "Kartik Dattatray Patil",     "department": "CSE", "isLead": false },
+          { "role": "Member",   "name": "Kundan Jadhav",              "department": "ECE", "isLead": false },
+          { "role": "Member",   "name": "Hemesh Sanjay Patel",        "department": "CSE", "isLead": false },
+          { "role": "Member",   "name": "Mayur Daulat Sonawane",      "department": "IT",  "isLead": false },
+          { "role": "Member",   "name": "Ritesh Jitendra Girase",     "department": "ECE", "isLead": false }
         ]
       },
       {
-        role: "PR / Social Media",
+        role: "PR & Social Media Team",
         icon: "🎨",
         accent: "#b06aff",
         selected: [
-          { name: "Niranjan Samadhan Patil", branch: "IT", year: "2nd Year" },
-          { name: "Gaurav Anil Suryawanshi", branch: "IT", year: "2nd Year" },
-          { name: "Wankhede Mahesh Satilal", branch: "CSE", year: "2nd Year" },
-          { name: "Manas Ganesh Mahajan", branch: "CSE", year: "2nd Year" },
-          { name: "Aarushi Mahendra Chaudhari", branch: "CSE", year: "1st Year" },
-          { name: "Patil Chandrashekhar Pravin", branch: "IT", year: "2nd Year" },
-          { name: "Himani Dinesh Patil", branch: "CSE", year: "2nd Year" },
-          { name: "Gayatri Chandrakant Patil", branch: "CSE", year: "1st Year" },
-          { name: "Shreyash Sharad Patil", branch: "CSE", year: "1st Year" },
-          { name: "Gaurav Hansraj Randive", branch: "IT", year: "1st Year" },
-          { name: "Lokhande Tanay Chandrashekhar", branch: "ECE", year: "2nd Year" },
-          { name: "Siddhant Vinayak Patil", branch: "DS", year: "2nd Year" }
+          { "role": "Lead",     "name": "Niranjan Samadhan Patil",     "department": "IT", "isLead": true  },
+          { "role": "Co-Lead",  "name": "Gaurav Anil Surywanshi",     "department": "IT", "isLead": true  },
+          { "role": "Member",   "name": "Wankhede Mahesh Satilal",    "department": "CSE", "isLead": false },
+          { "role": "Member",   "name": "Aarushi Mahendra Chaudhari",   "department": "CSE", "isLead": false },
+          { "role": "Member",   "name": "Himani Dinesh Patil",            "department": "CSE", "isLead": false },
+          { "role": "Member",   "name": "Lokhande Tanay Chandrashekhar",  "department": "ECE", "isLead": false }
         ]
       },
       {
-        role: "Event Lead",
+        role: "Event Team",
         icon: "🎤",
         accent: "#ff6ab0",
         selected: [
-          { name: "Girase Dipesh Narendrasing", branch: "CSE", year: "2nd Year" },
-          { name: "Krushna Kishor Patil", branch: "CSE", year: "2nd Year" },
-          { name: "Girase Vaishnavi Lalsing", branch: "CSE", year: "2nd Year" },
-          { name: "Pragati Deshmukh", branch: "DS", year: "1st Year" },
-          { name: "Soham Pradip Chikorde", branch: "CSE", year: "2nd Year" },
-          { name: "Nakshatra Pradeep Ahire", branch: "IT", year: "2nd Year" },
-          { name: "Rohan Bhaskar Thakare", branch: "ECE", year: "2nd Year" },
-          { name: "Meet Sudhakar Jagtap", branch: "IT", year: "2nd Year" },
-          { name: "Ashwini Avinash Shirsath", branch: "CSE", year: "2nd Year" },
-          { name: "Patil Mohini Rajuramdas", branch: "CSE", year: "2nd Year" },
-          { name: "Shreyesh Shrikant Bhat", branch: "CSE", year: "2nd Year" }
+          { "role": "Lead",    "name": "Krushna Kishor Patil",         "department": "CSE", "isLead": true  },
+          { "role": "Lead",    "name": "Nakshatra Pradeep Ahire",      "department": "IT",  "isLead": true  },
+          { "role": "Member",  "name": "Patil Mohini Rajuramdas",      "department": "CSE", "isLead": false },
+          { "role": "Member",  "name": "Ashwini Avinash Shirsath",     "department": "CSE", "isLead": false },
+          { "role": "Member",  "name": "Girase Vaishnavi Lalsing",     "department": "CSE", "isLead": false },
+          { "role": "Member",  "name": "Girase Dipesh Narendrasing",   "department": "CSE", "isLead": false },
+          { "role": "Member",  "name": "Soham Pradip Chikorde",        "department": "CSE", "isLead": false },
+          { "role": "Member",  "name": "Shreyesh Shrikant Bhat",       "department": "CSE", "isLead": false },
+          { "role": "Member",  "name": "Rohan Bhaskar Thakare",        "department": "ECE", "isLead": false },
+          { "role": "Member",  "name": "Meet Sudhakar Jagtap",         "department": "IT",  "isLead": false },
+          { "role": "Member",  "name": "Pragati Dinesh Deshmukh",      "department": "DS",  "isLead": false },
+          { "role": "Member",  "name": "Mrunal Manoj Borse",           "department": "CSE", "isLead": false }
         ]
       },
       {
@@ -652,24 +569,18 @@
         icon: "📋",
         accent: "#ffd700",
         selected: [
-          { name: "Zeeshan Shaikh", branch: "CSE", year: "1st Year" },
-          { name: "Dhanashri Umesh Suryawanshi", branch: "ECE", year: "2nd Year" },
-          { name: "Pawar Kaveri Dipaksinh", branch: "CSE", year: "2nd Year" },
-          { name: "Dipali Dinkar Ishi", branch: "CSE", year: "2nd Year" },
-          { name: "Ruchita Devidas Borse", branch: "CSE", year: "2nd Year" },
-          { name: "Mrunal Manoj Borse", branch: "CSE", year: "2nd Year" }
+          { "role": "Lead",     "name": "Pawar Kaveri Dipaksinh",       "department": "CSE", "isLead": true },
+          { "role": "Co-Lead",  "name": "Dhanashri Umesh Suryawanshi",  "department": "ECE", "isLead": true }
         ]
       },
       {
-        role: "Treasurer",
+        role: "Treasurer & Accounts",
         icon: "💰",
         accent: "#00ff9f",
         selected: [
-          { name: "Rajput Bhavishyasing Yogendra", branch: "CSE", year: "2nd Year" },
-          { name: "Piyush Kashinath Ishi", branch: "CSE", year: "2nd Year" },
-          { name: "Atharva Sharad Patil", branch: "CSE", year: "2nd Year" },
-          { name: "Pavan Bhaskar Patil", branch: "IT", year: "2nd Year" },
-          { name: "Patil Aditya Narayan", branch: "CSE", year: "2nd Year" }
+          { "role": "Lead",                 "name": "Piyush Kashinath Ishi",          "department": "CSE", "isLead": true },
+          { "role": "Accounts Manager",     "name": "Rajput Bhavishyasing Yogendra",  "department": "CSE", "isLead": true },
+          { "role": "Sponsorship Manager",  "name": "Pavan Bhaskar Patil",            "department": "IT",  "isLead": true }
         ]
       }
     ];
@@ -894,9 +805,22 @@
             candidatesHtml = '<p class="result-tba">To be announced</p>';
           } else {
             role.selected.forEach(function(c) {
+              var statusClass = "status--member";
+              var roleDisplayName = c.role;
+              var lRole = c.role.toLowerCase();
+
+              if (lRole === "lead") {
+                statusClass = "status--lead";
+                roleDisplayName += " ◈";
+              } else if (lRole.includes("lead") || lRole.includes("manager")) {
+                statusClass = "status--mid";
+              }
+
+              const roleStatus = '<span class="cand-sep">·</span><span class="cand-status ' + statusClass + '" style="--status-color: ' + role.accent + '">' + roleDisplayName + '</span>';
+                
               candidatesHtml += '<div class="result-candidate">' +
                 '<div class="cand-name">' + c.name + '</div>' +
-                '<div class="cand-info">' + c.branch + ' · ' + c.year + '</div>' +
+                '<div class="cand-info"><span>' + c.department + '</span>' + roleStatus + '</div>' +
                 '</div>';
             });
           }

@@ -624,6 +624,92 @@
       margin-top: 0.35rem;
     }
 
+    .query-section {
+      padding: 6rem 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .query-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .query-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .query-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 1.75rem;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+      text-decoration: none;
+      display: block;
+    }
+
+    .query-card:hover {
+      border-color: rgba(0, 229, 255, 0.3);
+      box-shadow: 0 0 30px rgba(0, 229, 255, 0.1);
+      transform: translateY(-4px);
+    }
+
+    .query-card h3 {
+      font-family: "Orbitron", sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.65rem;
+      letter-spacing: 0.12em;
+    }
+
+    .query-card p {
+      font-family: "Orbitron", sans-serif;
+      font-size: 1.15rem;
+      color: var(--text-primary);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .query-card:hover p {
+      color: var(--accent);
+    }
+
+    .footer {
+      padding: 60px 1.5rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer p {
+      font-family: "Orbitron", sans-serif;
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer .foot-line {
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      letter-spacing: normal;
+    }
+
+    .footer .copy {
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 1.25rem;
+    }
+
     .section-roles {
       padding: 5rem 1.5rem;
       max-width: 1200px;
@@ -802,490 +888,7 @@
       color: var(--card-accent);
     }
 
-    .how-section {
-      padding: 5rem 1.5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
 
-    .how-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .how-header h2 {
-      font-family: "Orbitron", sans-serif;
-      font-weight: 700;
-      font-size: clamp(1.35rem, 3.5vw, 2rem);
-      color: var(--text-primary);
-      margin-top: 0.75rem;
-    }
-
-    .how-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      position: relative;
-    }
-
-    @media (min-width: 900px) {
-      .how-steps {
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 0;
-      }
-      .how-step {
-        flex: 1;
-        text-align: center;
-        position: relative;
-        padding: 0 0.5rem;
-      }
-      .how-step::after {
-        content: "";
-        position: absolute;
-        top: 24px;
-        left: 50%;
-        width: 100%;
-        height: 0;
-        border-top: 2px dashed rgba(255, 255, 255, 0.12);
-        z-index: -1;
-      }
-      .how-step:last-child::after {
-        display: none;
-      }
-    }
-
-    .how-step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .how-circle {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: "Orbitron", sans-serif;
-      font-size: 0.85rem;
-      color: var(--accent);
-      background: rgba(3, 5, 15, 0.6);
-      position: relative;
-      z-index: 1;
-    }
-
-    .how-step h3 {
-      font-family: "Orbitron", sans-serif;
-      font-size: 0.85rem;
-      color: var(--text-primary);
-    }
-
-    .how-step p {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      text-align: center;
-      max-width: 220px;
-    }
-
-    .notes-section {
-      padding: 4rem 1.5rem;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    .notes-header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .notes-header h2 {
-      font-family: "Orbitron", sans-serif;
-      font-weight: 700;
-      font-size: clamp(1.35rem, 3.5vw, 1.85rem);
-      color: var(--text-primary);
-      margin-top: 0.75rem;
-    }
-
-    .notes-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    @media (min-width: 640px) {
-      .notes-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    .note-card {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      padding: 1.25rem 1.35rem;
-    }
-
-    .note-card .emoji {
-      font-size: 1.75rem;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .note-card h3 {
-      font-family: "Orbitron", sans-serif;
-      font-size: 0.85rem;
-      color: var(--text-primary);
-      margin-bottom: 0.35rem;
-    }
-
-    .note-card p {
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    .cta-banner {
-      padding: 120px 1.5rem;
-      text-align: center;
-      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(0, 229, 255, 0.08), rgba(123, 92, 255, 0.06), transparent 70%);
-    }
-
-    .cta-banner h2 {
-      font-family: "Orbitron", sans-serif;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 700;
-      color: var(--text-primary);
-      margin: 1rem 0;
-    }
-
-    .cta-banner .cta-sub {
-      color: var(--text-secondary);
-      max-width: 520px;
-      margin: 0 auto 2rem;
-      line-height: 1.8;
-    }
-
-    .quick-apply {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-      justify-content: center;
-    }
-
-    .quick-btn {
-      font-family: "Orbitron", sans-serif;
-      font-size: 0.7rem;
-      padding: 10px 20px;
-      border-radius: 999px;
-      border: 1px solid var(--qb-accent, var(--accent));
-      color: var(--qb-accent, var(--accent));
-      background: transparent;
-      cursor: pointer;
-      transition: background 0.3s, box-shadow 0.3s;
-    }
-
-    .quick-btn:hover {
-      background: color-mix(in srgb, var(--qb-accent, var(--accent)) 15%, transparent);
-      box-shadow: 0 0 24px color-mix(in srgb, var(--qb-accent, var(--accent)) 35%, transparent);
-    }
-
-    .footer {
-      padding: 48px 1.5rem;
-      text-align: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .footer p {
-      font-family: "Orbitron", sans-serif;
-      font-size: 0.72rem;
-      color: var(--text-secondary);
-      letter-spacing: 0.08em;
-      margin-bottom: 0.5rem;
-    }
-
-    .footer .foot-line {
-      font-family: "DM Sans", sans-serif;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      letter-spacing: normal;
-    }
-
-    .footer .copy {
-      font-family: "DM Sans", sans-serif;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 1rem;
-    }
-
-    #modal {
-      position: fixed;
-      inset: 0;
-      z-index: 200;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    #modal.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .modal-overlay-bg {
-      position: absolute;
-      inset: 0;
-      background: rgba(3, 5, 15, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-
-    .modal-box {
-      position: relative;
-      width: min(680px, 92vw);
-      max-height: 85vh;
-      overflow-y: auto;
-      background: rgba(8, 12, 28, 0.95);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-top: 3px solid var(--modal-accent);
-      border-radius: 24px;
-      padding: 48px 44px;
-      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
-      transform: scale(0.92) translateY(20px);
-      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
-      z-index: 1;
-    }
-
-    @media (max-width: 767px) {
-      .modal-box {
-        width: 100%;
-        max-width: 100%;
-        max-height: 100vh;
-        height: 100%;
-        border-radius: 0;
-        padding: 2rem 1.25rem;
-      }
-      #modal {
-        padding: 0;
-      }
-    }
-
-    #modal.active .modal-box {
-      transform: scale(1) translateY(0);
-    }
-
-    .modal-head {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .modal-icon-lg {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      flex-shrink: 0;
-      background: color-mix(in srgb, var(--modal-accent) 18%, transparent);
-      border: 1px solid color-mix(in srgb, var(--modal-accent) 35%, transparent);
-    }
-
-    .modal-title-wrap {
-      flex: 1;
-      padding-right: 2rem;
-    }
-
-    .modal-title-wrap h2 {
-      font-family: "Orbitron", sans-serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .modal-tagline {
-      font-family: "DM Sans", sans-serif;
-      font-style: italic;
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      margin-top: 0.35rem;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 1.25rem;
-      right: 1.25rem;
-      font-family: "Orbitron", sans-serif;
-      font-size: 1.75rem;
-      line-height: 1;
-      background: none;
-      border: none;
-      color: var(--text-secondary);
-      cursor: pointer;
-      padding: 0.25rem;
-    }
-
-    .modal-close:hover {
-      color: var(--text-primary);
-    }
-
-    .modal-head-divider {
-      height: 1px;
-      width: 100%;
-      background: color-mix(in srgb, var(--modal-accent) 40%, transparent);
-      margin: 1.25rem 0 1.75rem;
-    }
-
-    .modal-sec {
-      margin-bottom: 1.5rem;
-    }
-
-    .modal-sec-label {
-      font-family: "Orbitron", sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      color: var(--modal-accent);
-      margin-bottom: 12px;
-    }
-
-    .modal-sec p,
-    .modal-sec li {
-      font-family: "DM Sans", sans-serif;
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-      line-height: 1.8;
-    }
-
-    .modal-list {
-      list-style: none;
-    }
-
-    .modal-list li {
-      position: relative;
-      padding-left: 1.1rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .modal-list li::before {
-      content: "▸";
-      position: absolute;
-      left: 0;
-      color: var(--modal-accent);
-    }
-
-    .process-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .process-pill {
-      font-family: "Orbitron", sans-serif;
-      font-size: 0.65rem;
-      padding: 6px 14px;
-      border-radius: 999px;
-      border: 1px solid color-mix(in srgb, var(--modal-accent) 50%, transparent);
-      color: var(--modal-accent);
-    }
-
-    .process-arrow {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-
-    .modal-cta {
-      display: block;
-      width: 100%;
-      margin-top: 2rem;
-      padding: 16px;
-      border-radius: 12px;
-      border: none;
-      font-family: "Orbitron", sans-serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
-      cursor: pointer;
-      background: var(--modal-accent);
-      color: #03050f;
-      transition: filter 0.25s, box-shadow 0.25s;
-      text-align: center;
-      text-decoration: none;
-    }
-
-    .modal-cta:hover {
-      filter: brightness(1.15);
-      box-shadow: 0 8px 30px color-mix(in srgb, var(--modal-accent) 40%, transparent);
-    }
-    .query-section {
-      padding: 4rem 1.5rem 6rem;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .query-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    @media (min-width: 640px) {
-      .query-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    .query-card {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      padding: 1.5rem;
-      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
-      text-decoration: none;
-      display: block;
-    }
-
-    .query-card:hover {
-      border-color: rgba(0, 229, 255, 0.3);
-      box-shadow: 0 0 30px rgba(0, 229, 255, 0.1);
-      transform: translateY(-4px);
-    }
-
-    .query-card h3 {
-      font-family: "Orbitron", sans-serif;
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.1em;
-    }
-
-    .query-card p {
-      font-family: "Orbitron", sans-serif;
-      font-size: 1.2rem;
-      color: var(--text-primary);
-      font-weight: 600;
-      letter-spacing: 0.05em;
-    }
-
-    .query-card:hover p {
-      color: var(--accent);
-    }
 
     /* ── Results Modal ── */
     .modal-overlay {
@@ -1342,7 +945,7 @@
         </ul>
       </nav>
       <div class="nav-right">
-        <a href="#roles" class="nav-cta" data-scroll="#roles">APPLY NOW</a>
+        <a href="results.html" class="nav-cta">VIEW RESULTS</a>
       </div>
       <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -1353,12 +956,12 @@
       <a href="index.html" class="nav-link active">HOME</a>
       <a href="about.html" class="nav-link">ABOUT</a>
       <a href="results.html" class="nav-link">RESULTS</a>
-      <a href="#roles" class="nav-cta" data-scroll="#roles" data-mobile-link>APPLY NOW</a>
+      <a href="results.html" class="nav-cta">VIEW RESULTS</a>
     </div>
 
     <section class="hero">
       <div class="hero-left">
-        <div class="hero-label">◈ RECRUITMENT OPEN · 2026</div>
+        <div class="hero-label">◈ CORE TEAM · 2026</div>
         <h1 class="hero-headline">
           <span class="hero-line1" id="hero-line1"></span>
           <span class="hero-line2" id="hero-line2"></span><span class="type-cursor" id="type-cursor">|</span>
@@ -1366,10 +969,10 @@
         <div class="hero-reveal" id="hero-reveal">
           <p class="hero-sub">STARKS is a student-run tech club — organizing hackathons, workshops, and experiences that shape the next generation of builders at SVKM Shirpur.</p>
           <div class="hero-actions">
-            <button type="button" class="btn btn-primary" data-scroll="#roles">EXPLORE ROLES →</button>
+            <a href="results.html" class="btn btn-primary">VIEW CORE TEAM →</a>
             <a href="about.html" class="btn btn-ghost">LEARN MORE</a>
           </div>
-          <p class="hero-stats">5 Open Positions &nbsp;|&nbsp; 1 Club &nbsp;|&nbsp; ∞ Opportunities</p>
+          <p class="hero-stats">33 Members &nbsp;|&nbsp; 5 Teams &nbsp;|&nbsp; 1 Club</p>
         </div>
       </div>
       <div class="hero-visual">
@@ -1387,16 +990,16 @@
         <p>STARKS Tech Club is a student-run community — from ideating events to executing hackathons to managing community and communications. We're looking for passionate, driven students who want to build something real.</p>
         <div class="stat-row">
           <div class="stat-box">
-            <div class="big">5</div>
-            <div class="small">Open Roles</div>
+            <div class="big">33</div>
+            <div class="small">Core Members</div>
           </div>
           <div class="stat-box">
             <div class="big">1</div>
-            <div class="small">Tech Club</div>
+            <div class="small">Tech Community</div>
           </div>
           <div class="stat-box">
-            <div class="big">∞</div>
-            <div class="small">Opportunities</div>
+            <div class="big">◈</div>
+            <div class="small">Driven by Passion</div>
           </div>
         </div>
       </div>
@@ -1412,70 +1015,9 @@
       <div class="roles-row-2" id="roles-row-2"></div>
     </section>
 
-    <section class="how-section" id="timeline">
-      <div class="how-header">
-        <p class="section-label">◈ STEPS</p>
-        <h2>How To Apply</h2>
-      </div>
-      <div class="how-steps">
-        <div class="how-step">
-          <div class="how-circle">01</div>
-          <h3>Choose Role</h3>
-          <p>Browse positions and pick one that fits your strengths.</p>
-        </div>
-        <div class="how-step">
-          <div class="how-circle">02</div>
-          <h3>Fill the Form</h3>
-          <p>Submit the application with all required details.</p>
-        </div>
-        <div class="how-step">
-          <div class="how-circle">03</div>
-          <h3>Complete Task</h3>
-          <p>Finish any practical assignment if applicable.</p>
-        </div>
-        <div class="how-step">
-          <div class="how-circle">04</div>
-          <h3>Get Selected</h3>
-          <p>Shortlisted candidates will be invited for interview.</p>
-        </div>
-      </div>
-    </section>
 
-    <section class="notes-section">
-      <div class="notes-header">
-        <p class="section-label">◈ HEADS UP</p>
-        <h2>Before You Apply</h2>
-      </div>
-      <div class="notes-grid">
-        <div class="note-card">
-          <span class="emoji">⚠️</span>
-          <h3>Serious Candidates Only</h3>
-          <p>Only apply if you're genuinely committed.</p>
-        </div>
-        <div class="note-card">
-          <span class="emoji">📌</span>
-          <h3>Quality Over Quantity</h3>
-          <p>Selection is based on depth of your responses.</p>
-        </div>
-        <div class="note-card">
-          <span class="emoji">💡</span>
-          <h3>Tasks Matter</h3>
-          <p>Practical assignments carry significant weight.</p>
-        </div>
-        <div class="note-card">
-          <span class="emoji">🤝</span>
-          <h3>Active Contribution</h3>
-          <p>Be ready to show up and give your best.</p>
-        </div>
-      </div>
-    </section>
 
-    <section class="cta-banner">
-      <p class="section-label">◈ READY TO BUILD?</p>
-      <h2>Join STARKS. Shape the Future.</h2>
-      <p class="cta-sub">Fill the form. Show your skills. Get selected. Let's build, learn, and grow together.</p>
-      <div class="quick-apply" id="quick-apply"></div>
-    </section>
+
 
     <section class="query-section" id="queries">
       <div class="anim-entry">
@@ -1496,8 +1038,8 @@
 
     <footer class="footer">
        <p><img src="Logo.png" alt="STARKS" style="height:1.2rem; vertical-align:middle; margin-right:8px;"> Tech Club — Core Team</p>
-      <p class="foot-line">SVKM College of Engineering, Shirpur · Recruitment 2026</p>
-      <p class="copy">© 2026 Starks Club. All rights reserved.</p>
+      <p class="foot-line">SVKM College of Engineering, Shirpur · Core Team 2026</p>
+      <p class="copy">© 2026 STARKS Club. All rights reserved.</p>
     </footer>
   </div>
 
@@ -1780,7 +1322,7 @@
       var cursor = document.getElementById("type-cursor");
       var reveal = document.getElementById("hero-reveal");
       var text1 = "STARKS TECH CLUB";
-      var text2 = "CORE TEAM RECRUITMENT.";
+      var text2 = "OFFICIAL CORE TEAM.";
       var i1 = 0, i2 = 0;
 
       function typeLine1() {
@@ -1820,26 +1362,7 @@
         card.dataset.staggerIndex = String(globalIdx++);
       });
 
-      var shortNames = {
-        "tech-lead": "Tech Lead",
-        "pr-lead": "PR Lead",
-        "event-lead": "Event Lead",
-        "gen-sec": "Gen. Sec.",
-        treasurer: "Treasurer"
-      };
 
-      var qa = document.getElementById("quick-apply");
-      roles.forEach(function (role) {
-        var b = document.createElement("button");
-        b.type = "button";
-        b.className = "quick-btn";
-        b.style.setProperty("--qb-accent", role.accent);
-        b.textContent = role.icon + " " + shortNames[role.id];
-        b.addEventListener("click", function () {
-          window.open(role.formUrl, "_blank", "noopener,noreferrer");
-        });
-        qa.appendChild(b);
-      });
 
       var modal = document.getElementById("modal");
       var modalBox = document.getElementById("modal-box");
@@ -1864,8 +1387,8 @@
         modalIcon.textContent = role.icon;
         modalTitle.textContent = role.title;
         modalTagline.textContent = role.tagline;
-        modalCta.href = role.formUrl;
-        modalCta.textContent = "APPLY FOR " + role.title.toUpperCase() + " →";
+        modalCta.href = "results.html";
+        modalCta.textContent = "VIEW FULL CORE TEAM →";
 
         function listHtml(arr) {
           return '<ul class="modal-list">' + arr.map(function (x) {
@@ -1974,9 +1497,9 @@
     <div class="modal-content glass-card">
       <div class="modal-icon">🏆</div>
       <h2>RESULTS DECLARED</h2>
-      <p>The screening results for STARKS Tech Club Recruitment 2026 are now live! Check if you've been shortlisted for the interviews.</p>
+      <p>The final selection for the STARKS Tech Club Core Team 2026 is now live! Congratulations to all the selected members.</p>
       <div class="modal-actions">
-        <button class="modal-btn-primary" id="modal-view-results">VIEW RESULTS →</button>
+        <button class="modal-btn-primary" id="modal-view-results">VIEW CORE TEAM →</button>
         <button class="modal-btn-dismiss" id="modal-dismiss">Dismiss for now</button>
       </div>
     </div>
